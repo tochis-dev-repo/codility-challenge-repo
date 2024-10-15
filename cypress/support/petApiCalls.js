@@ -1,15 +1,16 @@
 export const createPet = (petData) => {
     return cy.request({
         method: 'POST',
-        url: 'https://petstore.swagger.io/v2/pet',
-        body: petData
+        url: '/pet',
+        body: petData,
+        failOnStatusCode: false
     });
 };
 
 export const getPetById = (petId) => {
     return cy.request({
         method: 'GET',
-        url: `https://petstore.swagger.io/v2/pet/${petId}`,
+        url: `/pet/${petId}`,
         failOnStatusCode: false
     });
 };
@@ -17,15 +18,16 @@ export const getPetById = (petId) => {
 export const updatePet = (petData) => {
     return cy.request({
         method: 'PUT',
-        url: 'https://petstore.swagger.io/v2/pet',
-        body: petData
+        url: '/pet',
+        body: petData,
+        failOnStatusCode: false
     });
 };
 
 export const deletePetById = (petId) => {
     return cy.request({
         method: 'DELETE',
-        url: `https://petstore.swagger.io/v2/pet/${petId}`,
+        url: `/pet/${petId}`,
         failOnStatusCode: false
     });
 };
