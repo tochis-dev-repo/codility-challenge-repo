@@ -1,5 +1,3 @@
-// cypress/support/petApi.js
-
 export const createPet = (petData) => {
     return cy.request({
         method: 'POST',
@@ -12,7 +10,7 @@ export const getPetById = (petId) => {
     return cy.request({
         method: 'GET',
         url: `https://petstore.swagger.io/v2/pet/${petId}`,
-        failOnStatusCode: false  // Avoid test failure on non-200 responses
+        failOnStatusCode: false
     });
 };
 
@@ -28,6 +26,6 @@ export const deletePetById = (petId) => {
     return cy.request({
         method: 'DELETE',
         url: `https://petstore.swagger.io/v2/pet/${petId}`,
-        failOnStatusCode: false  // Avoid test failure on non-200 responses
+        failOnStatusCode: false
     });
 };
