@@ -70,7 +70,7 @@ By default, the base URL for the API is set in *cypress.config.js*. If you need 
 const { defineConfig } = require('cypress');
 module.exports = defineConfig({
   e2e: {
-    baseUrl: 'https://petstore.swagger.io/v2',  // Set your base URL here
+    baseUrl: process.env.CYPRESS_BASE_URL || 'https://petstore.swagger.io/v2',  // Use env variable or fallback to default
   },
 });
 ```
