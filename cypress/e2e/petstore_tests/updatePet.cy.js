@@ -4,10 +4,12 @@ import responseCodes from '../../fixtures/test_data/responseCodes';
 import { updatePet } from '../../support/petApiCalls';
 
 let apiCodes = responseCodes.updatePetCodes;
+let updatePetData = petData.filter(pet => pet.testTags && pet.testTags.includes("update"));
 
 describe('PetStore - Update Pet', () => {
-    petData.forEach((pet, index) => {
-        it(`should update pet: ${pet.name || 'invalid data'} (Test Case #${index})`, () => {
+    updatePetData.forEach((pet, index) => {
+        delete pet.testTags; //remove test tags from request body
+        it(`should update pet: ${pet.name || 'invalid data'} (Test Case #${index+1})`, () => {
             const updatedPet = { ...pet, name: `${pet.name}_updated` };
 
             updatePet(updatedPet).then((response) => {

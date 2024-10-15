@@ -4,10 +4,12 @@ import responseCodes from '../../fixtures/test_data/responseCodes';
 import { deletePetById } from '../../support/petApiCalls';
 
 let apiCodes = responseCodes.deletePetCodes;
+let deletePetData = petData.filter(pet => pet.testTags && pet.testTags.includes("delete"));
 
 describe('PetStore - Delete Pet', () => {
-    petData.forEach((pet, index) => {
-        it(`should delete pet by ID: ${pet.id} (Test Case #${index})`, () => {
+    deletePetData.forEach((pet, index) => {
+        delete pet.testTags; //remove test tags from request body
+        it(`should delete pet by ID: ${pet.id} (Test Case #${index+1})`, () => {
             deletePetById(pet.id).then((response) => {
                 if (typeof pet.id === 'number') {
                     // Positive case - valid pet ID

@@ -9,7 +9,8 @@ const petData = [
       name: "Rex",
       photoUrls: ["https://example.com/rex.jpg"],
       tags: [{ id: 0, name: "dog" }],
-      status: "available"
+      status: "available",
+      testTags: ["create","find","update","delete"]
     },
   
     // Valid data - another positive test case
@@ -22,7 +23,8 @@ const petData = [
       name: "Whiskers",
       photoUrls: ["https://example.com/whiskers.jpg"],
       tags: [{ id: 1, name: "cat" }],
-      status: "available"
+      status: "available",
+      testTags: ["create","find","update","delete"]
     },
   
     // Invalid data - missing required field 'name'
@@ -35,7 +37,8 @@ const petData = [
       // name is missing here to trigger validation error
       photoUrls: ["https://example.com/tweety.jpg"],
       tags: [{ id: 2, name: "bird" }],
-      status: "available"
+      status: "available",
+      testTags: ["delete"]
     },
   
     // Invalid data - invalid status value
@@ -48,7 +51,8 @@ const petData = [
       name: "Goldie",
       photoUrls: ["https://example.com/goldie.jpg"],
       tags: [{ id: 3, name: "fish" }],
-      status: "not-a-valid-status"  //invalid status
+      status: "not-a-valid-status",
+      testTags: ["create","find","update","delete"]
     },
   
     // Invalid data - missing photoUrls (required field)
@@ -60,8 +64,8 @@ const petData = [
       },
       name: "Slinky",
       tags: [{ id: 4, name: "reptile" }],
-      status: "available"
-      // photoUrls is missing to trigger validation error
+      status: "available",
+      testTags: ["find","update","delete"]
     },
   
     // Invalid data - ID is a string instead of a number
@@ -74,11 +78,14 @@ const petData = [
       name: "Hammy",
       photoUrls: ["https://example.com/hammy.jpg"],
       tags: [{ id: 5, name: "hamster" }],
-      status: "available"
+      status: "available",
+      testTags: ["create","find","update","delete"]
     },
   
     // Invalid data - Empty object
-    {}
+    {
+      testTags: ["find","update","delete"]
+    }
   ];
   
   export default petData;
