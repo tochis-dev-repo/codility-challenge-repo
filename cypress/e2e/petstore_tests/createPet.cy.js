@@ -7,7 +7,7 @@ let apiCodes = responseCodes.creatPetCodes;
 
 describe('PetStore - Create Pet', () => {
     petData.forEach((pet, index) => {
-        it(`should create pet: ${pet.name || 'invalid data'} (Test Case #${index})`, () => {
+        it(`should create pet: ${pet.name || 'invalid data'} (Test Case #${index+1})`, () => {
             createPet(pet).then((response) => {
                 if (pet.name && pet.photoUrls && typeof pet.id === 'number') {
                     // Positive case - valid pet data
